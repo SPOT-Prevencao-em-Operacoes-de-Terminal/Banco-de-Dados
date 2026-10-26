@@ -29,7 +29,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE codigo_autenticacao (
     id_codigo INT AUTO_INCREMENT PRIMARY KEY,
-    codigo VARCHAR(100),
+    codigo CHAR(6),
     data_criacao DATETIME,
     data_vencimento DATETIME,
     status VARCHAR(20),
@@ -146,4 +146,16 @@ INSERT INTO usuario (nome, cargo, cpf, senha, status, fk_empresa, fk_cargo) VALU
 INSERT INTO tipo_contato (nome) VALUES
 ('Telefone'),
 ('E-mail');
-```
+
+SELECT *
+FROM codigo_autenticacao
+ORDER BY id_codigo DESC;
+
+INSERT INTO contato (fk_tipo_contato, fk_usuario, contatocol)
+VALUES
+(2, 1, 'admin.santos@spot.com'),
+(2, 2, 'admin.navegantes@spot.com'),
+(2, 3, 'admin.paranagua@spot.com'),
+(2, 4, 'admin.rio@spot.com'),
+(2, 5, 'admin.suape@spot.com'),
+(2, 6, 'admin.itajai@spot.com');
